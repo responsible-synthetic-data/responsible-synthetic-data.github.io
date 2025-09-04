@@ -124,7 +124,6 @@ img {
 .section-subtitle {
     text-align: center;
     color: var(--gray-color);
-    margin-bottom: 3rem;
     font-size: 1.1rem;
 }
 
@@ -418,11 +417,17 @@ img {
 
 /* About Section */
 .about-grid {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1.2fr 1fr;
     gap: 4rem;
-    align-items: start;
+    align-items: start; */
     margin-top: 2rem;
+}
+
+.about-topics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.2rem 3.8rem;
 }
 
 .about-left {
@@ -490,9 +495,10 @@ img {
 }
 
 .about-subtitle {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin: 0 0 1.5rem 0;
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
     color: var(--dark-color);
 }
 
