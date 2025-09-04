@@ -72,10 +72,12 @@ h2::after {
 h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    margin-top: 1.5rem;
 }
 
 p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
 }
 
 a {
@@ -89,7 +91,14 @@ a:hover {
 }
 
 ul {
-    list-style: none;
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+ul li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
 }
 
 img {
@@ -192,7 +201,7 @@ img {
     bottom: 0%;
     width: 30%;
     height: 30%;
-    background: url('../images/sg_icons.png') no-repeat center;
+    background: url('../images/sg_icons2.png') no-repeat center;
     background-size: contain;
     z-index: 3; /* above wave, below text */
     opacity: 0.95;
@@ -215,12 +224,26 @@ img {
 /* SVG wave styling */
 .hero-wave {
     position: absolute;
-    left: 0;
     bottom: 0;
+    left: 0;
     width: 100%;
-    height: 80px;
-    z-index: 2; /* above background overlay, below icon/text */
-    pointer-events: none;
+    height: 100px;
+    z-index: 1;
+}
+
+.green-strand {
+    animation: greenStrandFloat 8s ease-in-out infinite;
+}
+
+@keyframes greenStrandFloat {
+    0%, 100% { 
+        transform: translateY(0px);
+        opacity: 0.8;
+    }
+    50% { 
+        transform: translateY(-3px);
+        opacity: 1;
+    }
 }
 
 .hero-content {
@@ -255,7 +278,7 @@ img {
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin-bottom: 1.5rem;
     color: white;
     line-height: 1.2;
@@ -263,7 +286,7 @@ img {
 }
 
 .subtitle {
-    font-size: 1.5rem;
+    font-size: 2.4rem;
     margin-bottom: 2rem;
     color: rgba(255, 255, 255, 0.9);
     font-weight: 300;
@@ -432,8 +455,9 @@ img {
 }
 
 .date-highlight {
-    color: #7c3aed;
+    color: #8b5a3c;;
     font-weight: 500;
+    margin-left: 20px;
 }
 
 .link-highlight {
@@ -556,7 +580,8 @@ img {
 }
 
 .topic-card h3 {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
     font-size: 1.3rem;
 }
 
@@ -680,6 +705,12 @@ img {
     font-size: 1.3rem;
 }
 
+.topic-category h4 {
+    color: #8b5a3c;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
 .timeline-content p {
     color: var(--gray-color);
     font-size: 0.95rem;
@@ -711,15 +742,12 @@ img {
     padding: 1.5rem 0;
     border-radius: 0;
     box-shadow: none;
-    margin: 2rem 0;
     border: none;
 }
 
 .important-dates h3 {
-    color: #8b5a3c;
     margin-bottom: 1.5rem;
     text-align: left;
-    font-size: 1.2rem;
     font-weight: 500;
 }
 
@@ -732,7 +760,7 @@ img {
     padding-bottom: 0.75rem;
     border-bottom: 1px solid #f3f4f6;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
 }
 
@@ -783,11 +811,22 @@ img {
     left: 0;
 }
 
+.topic-checkmark {
+    display: inline-block;
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #7c3aed 0%, #8b5a3c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 /* Organizers Section */
 .organizers-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
+    gap: 0.1rem;
     margin-top: 3rem;
     max-width: 1100px;
     margin-left: auto;
@@ -831,7 +870,7 @@ img {
 }
 
 .organizer-card h3 {
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.4rem;
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--dark-color);
@@ -1048,8 +1087,10 @@ img {
     }
     
     .subtitle {
-        font-size: 1.2rem;
+        font-size: 1.8rem;
     }
+
+
     
     .nav-links {
         position: fixed;
@@ -1065,6 +1106,10 @@ img {
         transition: var(--transition);
         z-index: 1000;
         box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links ul {
+        margin-bottom: 0;
     }
     
     .nav-links.active {

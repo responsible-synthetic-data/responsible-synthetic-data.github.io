@@ -17,9 +17,9 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Shaping Responsible Synthetic Data in the Era of Foundation Models</h1>
-                <p class="subtitle">A Workshop at AAAI 2026 | Singapore Expo</p>
+                <p class="subtitle">A Workshop at AAAI 2026</p>
                 <div class="date-location">
-                    <p><i class="fas fa-calendar-alt"></i> February 2026</p>
+                    <p><i class="fas fa-calendar-alt"></i> January 2026</p>
                     <p><i class="fas fa-map-marker-alt"></i> Singapore Expo, Singapore</p>
                 </div>
             </div>
@@ -31,9 +31,16 @@
                     <stop offset="50%" stop-color="#6366f1" stop-opacity="0.9" />
                     <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.85" />
                 </linearGradient>
+                <linearGradient id="greenStrandGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#10b981" stop-opacity="0.8" />
+                    <stop offset="50%" stop-color="#34d399" stop-opacity="0.9" />
+                    <stop offset="100%" stop-color="#6ee7b7" stop-opacity="0.7" />
+                </linearGradient>
             </defs>
             <path d="M0,60 C240,80 480,40 720,60 C960,80 1200,40 1440,60 L1440,100 L0,100 Z"
                 fill="url(#heroWaveGradient)" />
+            <path class="green-strand" d="M0,25 C360,35 720,15 1080,25 C1200,28 1320,22 1440,25" 
+                stroke="url(#greenStrandGradient)" stroke-width="3" fill="none" opacity="0.8" />
         </svg>
         <div class="hero-icon" aria-hidden="true"></div>
     </header>
@@ -41,7 +48,7 @@
     <nav class="main-nav">
         <div class="container">
             <div class="nav-container">
-                <a href="#" class="nav-logo">AAAI'26 RSD-FM</a>
+                <a href="#" class="nav-logo">RSD-FM @ AAAI'26</a>
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
                     <li><a href="#cfp">Call for Papers</a></li>
@@ -84,40 +91,33 @@
                     <h3 class="about-subtitle">Topics of Interest (But not limited to)</h3>
 
                     <div class="topic-category">
-                        <h4>Lifecycle Uses & LLM‑Driven Generation</h4>
-                        <p>Synthetic data for pre‑training, fine‑tuning (RLHF/RLAIF), continual eval;
-                            self‑training/bootstrapping loops and their limits.</p>
+                        <h4><span class="topic-checkmark">✓</span>Lifecycle Uses & LLM‑Driven Generation</h4>
+                        <p>Synthetic data for pre-training and fine-tuning (RLHF/RLAIF), continual evaluation, and self-training or bootstrapping loops—along with their limitations.</p>
                     </div>
 
                     <div class="topic-category">
-                        <h4>Privacy, Security & Data Governance</h4>
-                        <p>Differential privacy and other PETs; leakage/membership‑inference risks; consent, copyright,
-                            provenance; comparative regulatory views.</p>
+                        <h4><span class="topic-checkmark">✓</span>Privacy, Security & Data Governance</h4>
+                        <p>Differential privacy and other PETs; leakage and membership-inference risks; consent, copyright, and provenance concerns; comparative perspectives on regulation.</p>
                     </div>
 
                     <div class="topic-category">
-                        <h4>Fairness, Bias & Representation</h4>
-                        <p>Measuring/mitigating bias via synthetic augmentation; balancing utility, privacy, and group
-                            fairness; surfacing underserved groups and edge cases.</p>
+                        <h4><span class="topic-checkmark">✓</span>Fairness, Bias & Representation</h4>
+                        <p>Synthetic adversarial probes, jailbreak tests, and edge-case simulations; preventing model collapse or shortcut learning through robust real/synthetic mixes..</p>
                     </div>
 
                     <div class="topic-category">
-                        <h4>Safety, Robustness & Red‑Teaming</h4>
-                        <p>Synthetic adversarial probes, jailbreak tests, and edge‑case simulations; preventing
-                            collapse/shortcut learning via healthy real/synthetic mixes.</p>
+                        <h4><span class="topic-checkmark">✓</span>Safety, Robustness & Red‑Teaming</h4>
+                        <p>Synthetic adversarial probes, jailbreak tests, and edge-case simulations; preventing model collapse or shortcut learning through robust real/synthetic mixes.</p>
                     </div>
 
                     <div class="topic-category">
-                        <h4>Explainability, Interpretability & Uncertainty</h4>
-                        <p>Synthetic counterfactuals/narratives for debugging; uncertainty quantification; cross‑domain
-                            benchmarks (table, timeseries, text, vision, multimodal).</p>
+                        <h4><span class="topic-checkmark">✓</span>Explainability, Interpretability & Uncertainty</h4>
+                        <p>Synthetic counterfactuals and narratives for debugging; quantifying uncertainty; cross-domain benchmarks spanning tabular, time-series, text, vision, and multimodal data.</p>
                     </div>
 
                     <div class="topic-category">
-                        <h4>Standards, Metrics & Tooling for Trustworthy Use</h4>
-                        <p>Fidelity/utility/privacy metric suites; responsible generation protocols (source curation,
-                            prompt filtering, DP noise, provenance/watermarking, disclosure "data cards"); validation
-                            pipelines and audit checklists; open vs. commercial generators.</p>
+                        <h4><span class="topic-checkmark">✓</span>Standards, Metrics & Tooling for Trustworthy Use</h4>
+                        <p>Metric suites for fidelity, utility, and privacy; responsible generation protocols (e.g., source curation, prompt filtering, DP noise, provenance/watermarking, disclosure “data cards”); validation pipelines and audit checklists; open-source vs. commercial generators.</p>
                     </div>
                 </div>
             </div>
@@ -129,7 +129,7 @@
         <div class="container">
             <div class="section-eyebrow">CALLS</div>
             <h2>Call for Papers</h2>
-            <div class="submission-content">
+            <div class="">
                 <div class="submission-text">
                     <!-- <p>We invite submissions of original research papers on topics related to responsible synthetic data
                         generation and evaluation. Papers should be 4-8 pages in length (excluding references) following
@@ -148,28 +148,48 @@
                                     (TBC), 2026, Singapore</span></li>
                         </ul>
                     </div>
-                    <a href="#" class="cta-button disabled" disabled>Submission Portal (Coming Soon)</a>
-                </div>
-                <div class="submission-guidelines">
+                    <div style="padding-bottom: 1.5rem;">
                     <h3>Submission Instructions</h3>
-                    <p>Submissions are processed in <a href="#" class="link-highlight">OpenReview</a>. Submissions
-                        should be double-blind, no more than 4 pages (excluding references). An optional appendix of any
-                        length can be put at the end of the draft (after references).</p>
-                    <p>Our workshop does not have formal proceedings, i.e., it is non-archival. Accepted papers and
-                        their reviews will be made public (after the review process), while rejected and withdrawn
-                        papers and their reviews will remain private.</p>
-                    <p>We welcome submissions from novel research, ongoing (incomplete) projects, draft currently under
-                        review at other venues. In particular, we have the following policies.</p>
                     <ul>
-                        <li><strong>[Submission on previous conference and workshop papers]</strong> We request
-                            significant updates if the work has been presented at conferences or workshops before, or
-                            has been presented at any conferences or workshops before.</li>
-                        <li><strong>[Submission on previous journal papers]</strong> For published work in journals that
-                            have not been presented at conferences or workshops, we welcome such submissions as long as
-                            it is novel it is for the community.</li>
-                        <li><strong>[Dual submission to other workshops at the same time]</strong> We generally allow
-                            dual submissions to other workshops at the same time.</li>
+                        <li>Submissions are handled via <a href="#" class="link-highlight">OpenReview</a>.</li>
+                        <li>Papers must be <strong>double-blind</strong> and no longer than <strong>4 pages</strong> (excluding references).</li>
+                        <li>An <strong>optional appendix</strong> of any length may follow the references.</li>
                     </ul>
+                    
+                    <p>The workshop is <strong>non-archival</strong> (no formal proceedings). Accepted papers and reviews will be made public on OpenReview after review; rejected and withdrawn papers, and their reviews, will remain private.</p>
+                    
+                    <p>We welcome:</p>
+                    <ul>
+                        <li>Novel research</li>
+                        <li>Ongoing or incomplete projects</li>
+                        <li>Drafts currently under review at other venues</li>
+                    </ul>
+                    
+                    <p>Specific policies:</p>
+                    <ul>
+                        <li><strong>Previously presented conference/workshop papers:</strong> Significant updates are required.</li>
+                        <li><strong>Journal papers not previously presented at conferences/workshops:</strong> Submissions are welcome if they offer novel value for the community.</li>
+                        <li><strong>Dual submission to other workshops:</strong> Generally allowed.</li>
+                    </ul>
+                    </div>
+
+                    <div style="padding-bottom: 1.5rem;">
+                    <h3>Camera-Ready Instructions</h3>
+                    <ul>
+                        <li>Use the official <strong>AAAI template</strong>, but update the footnote/header from "AAAI Main Conference" to "Workshop."</li>
+                        <li>One <strong>extra page</strong> is allowed for revisions (e.g., addressing reviews, adding authors, acknowledgements).</li>
+                        <li>Final PDFs will be released on OpenReview after the deadline. Camera-ready drafts can be updated by replacing the PDF in OpenReview.</li>
+                    </ul>
+                    </div>  
+                    
+                    <div style="padding-bottom: 1.5rem;">
+                    <h3>Presentation Instructions</h3>
+                    <p>All accepted papers must be <strong>presented in person</strong>. While we aim to make the workshop accessible to remote attendees, we will not support virtual talks or posters.</p>
+                    <ul>
+                        <li>All accepted papers must have a poster in portrait orientation, up to A1 size (23.4" × 33.1" / 59.4 cm × 89.1 cm).</li>
+                        <li>Each spotlight presentation is 10 minutes including Q&A.</li>
+                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -179,7 +199,12 @@
     <section id="program" class="section">
         <div class="container">
             <h2>Details on Program, Invited Speakers and Panelists</h2>
-            <p class="section-subtitle">Coming soon</p>
+            <p class="section-subtitle"><b>Coming soon</b></p>
+            <p>
+                The workshop will be a one-day event for Shaping Responsible Synthetic Data in the Era of Foundation Models. It will feature a mix of invited talks, spotlight presentations from submitted papers, a poster session for interactive discussions, and a panel discussion.
+            </p>
+            <p>Attendance is open to all. At least one author of each accepted submission must be present at the workshop.
+            </p>
         </div>
     </section>
 
