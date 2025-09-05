@@ -438,7 +438,7 @@ img {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--gray-color);
-    margin-bottom: 0.5rem;
+    margin-bottom: 2rem;
     font-weight: 600;
     position: relative;
 }
@@ -1280,6 +1280,67 @@ img {
     .organizer-card h3,
     .organizer-card .affiliation {
         text-align: center;
+    }
+}
+
+.organizer-card {
+    position: relative;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer; /* show it’s clickable */
+}
+
+/* Corner elements */
+.organizer-card::before,
+.organizer-card::after {
+    content: "";
+    position: absolute;
+    width: 10px;   /* corner size */
+    height: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #a78bfa 0%, #8b5a3c 100%);
+    background-size: 200% 200%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Top-left corner */
+.organizer-card::before {
+    top: 0;
+    left: 0;
+    border-right: none;
+    border-bottom: none;
+}
+
+/* Bottom-right corner */
+.organizer-card::after {
+    bottom: 0;
+    right: 0;
+    border-left: none;
+    border-top: none;
+}
+
+/* Hover effect */
+.organizer-card:hover {
+    transform: translateY(-3px);
+}
+
+.organizer-card:hover::before,
+.organizer-card:hover::after {
+    opacity: 1;
+    animation: gradientFlow 2s linear infinite;
+}
+
+/* Animate gradient movement */
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
     }
 }
 
