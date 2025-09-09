@@ -1265,6 +1265,14 @@ img {
     border-radius: 6px;
 }
 
+.job-title {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin: -0.5rem 0 0.5rem 0;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
 /* Fix for narrow screens */
 @media (max-width: 768px) {
     .organizer-avatar {
@@ -1278,7 +1286,8 @@ img {
     }
 
     .organizer-card h3,
-    .organizer-card .affiliation {
+    .organizer-card .affiliation,
+    .organizer-card .job-title {
         text-align: center;
     }
 }
