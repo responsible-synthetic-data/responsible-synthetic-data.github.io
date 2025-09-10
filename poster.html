@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAAI'26 Workshop Poster - Responsible Synthetic Data</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Didact+Gothic&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1e1b4b 0%, #4f46e5 100%);
+            color: white;
+            overflow: hidden;
+        }
+
+        .poster {
+            width: 210mm;
+            height: auto;
+            margin: 0 auto;
+            /* padding: 15mm; */
+            background: linear-gradient(135deg, #1e1b4b 0%, #4f46e5 50%, #8b5cf6 100%);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .poster::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15) 0%, transparent 25%);
+            z-index: 1;
+        }
+
+        .hero-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            z-index: 2;
+        }
+
+        .singapore-icon {
+            position: absolute;
+            top: 10mm;
+            right: 15mm;
+            width: 50px;
+            height: 50px;
+            background: url('images/sg_icons2.png') no-repeat center;
+            background-size: contain;
+            opacity: 0.5;
+            z-index: 3;
+            animation: iconFloat 6s ease-in-out infinite;
+        }
+
+        .wave-divider {
+            position: relative;
+            height: 90px;
+            overflow: hidden;
+        }
+
+        .wave-divider-svg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            z-index: 1;
+        }
+
+        .wave-divider .singapore-logo {
+            position: absolute;
+            right: 65px;
+            bottom: -18px;
+            width: 160px;
+            height: 120px;
+            background: url('images/sg_icons2.png') no-repeat center;
+            background-size: contain;
+            opacity: 0.6;
+            z-index: 3;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+        
+        .wave-deadline {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 4;
+            text-align: center;
+            padding: 20px;
+            background: transparent;
+        }
+        
+        .wave-deadline-text {
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 19px;
+            color: 400;
+            color: sandybrown;
+            text-align: center;
+            letter-spacing: -0.3px;
+            margin: 0 0 8px 0;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .wave-website-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            color: white;
+            text-align: center;
+            letter-spacing: -0.1px;
+            margin: 0;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            display: block;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes iconFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-5px) rotate(2deg);
+                opacity: 1;
+            }
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            flex-direction: column;
+        }
+
+        .content-white {
+            background: white;
+            color: #1e1b4b;
+            padding: 0;
+            margin: 0;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+
+        .content-white-inner {
+            padding: 20px 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-top: 8px;
+            padding: 5mm 16mm;
+        }
+
+        .workshop-badge {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .main-title {
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 34px;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 16px;
+            border-radius: 25px;
+            padding: 6px 30px;
+            display: inline-block;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.3px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .event-details {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .event-detail {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .event-detail::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .topics-section {
+            flex: 1;
+            margin-bottom: 18px;
+        }
+
+        .section-title {
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 22px;
+            font-weight: 400;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 25px;
+            position: relative;
+            letter-spacing: -0.3px;
+            color: #1e1b4b;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #10b981, #34d399);
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 25px;
+            margin-bottom: 15px;
+        }
+
+        .topic-item {
+            display: flex;
+            align-items: flex-start;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .topic-checkmark {
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 8px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .topic-text {
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .important-dates {
+            margin: 25px 0;
+            padding: 0;
+            background: transparent;
+        }
+
+        .dates-title {
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #d97706;
+            text-align: center;
+            background: rgba(251, 191, 36, 0.1);
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 1px solid #f59e0b;
+            letter-spacing: -0.3px;
+        }
+
+        .dates-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .date-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background: #fefefe;
+            border-radius: 10px;
+            border-left: 4px solid #8b5a3c;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .date-label {
+            font-weight: 600;
+            color: #374151;
+            font-size: 15px;
+        }
+
+        .date-value {
+            font-weight: 600;
+            color: #8b5a3c;
+            font-size: 15px;
+        }
+
+        .organizers-section {
+            margin-top: auto;
+        }
+
+        .organizers-title {
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 15px;
+            letter-spacing: -0.2px;
+            color: #1e1b4b;
+        }
+
+        .organizers-grid {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .organizer {
+            text-align: center;
+            margin: 0 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 120px;
+        }
+
+        .organizer-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 20%;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            margin-bottom: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .organizer-name {
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            margin-bottom: 4px;
+            line-height: 1.2;
+            letter-spacing: -0.1px;
+            color: #1e1b4b;
+            width: 100%;
+        }
+
+        .organizer-affiliation {
+            font-size: 10px;
+            opacity: 0.9;
+            line-height: 1.4;
+            color: #6b7280;
+            width: 100%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            text-align: center;
+            padding: 0 5px;
+            max-width: 110px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            text-align: center;
+            background: rgba(30, 27, 75, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(30, 27, 75, 0.1);
+        }
+
+        .contact-email {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 500;
+            color: #fbbf24;
+            letter-spacing: 0.5px;
+        }
+
+        .call-to-action {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-text {
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 5px;
+            letter-spacing: -0.2px;
+        }
+
+        .cta-subtext {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        
+        .footer-contact {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 12px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-label {
+            font-size: 16px;
+        }
+        
+        .contact-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        
+        .footer-contact-info {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .contact-item-footer {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #374151;
+            background: rgba(30, 27, 75, 0.05);
+            padding: 8px 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(30, 27, 75, 0.1);
+        }
+        
+        .contact-label-footer {
+            font-size: 14px;
+        }
+        
+        .contact-text-footer {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .purple-footer {
+            background: linear-gradient(135deg, #1e1b4b 0%, #4f46e5 100%);
+            padding: 15px 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        .purple-footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .purple-footer-item {
+            color: white;
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        @media print {
+            body {
+                background: none;
+            }
+            .poster {
+                box-shadow: none;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="content">
+            <div class="header">
+                <!-- <div class="workshop-badge">AAAI'26</div> -->
+                <h1 class="main-title">Shaping Responsible Synthetic Data in the Era of Foundation Models</h1>
+                <p class="subtitle">Workshop at AAAI 2026 | Call for Papers</p>
+                <div class="event-details">
+                    <div class="event-detail">January 2026</div>
+                    <div class="event-detail">Singapore Expo, Singapore</div>
+                </div>
+                
+            </div>
+
+            <!-- <div class="call-to-action">
+                <div class="cta-text">Submit Your Research on Responsible Synthetic Data!</div>
+                <div class="cta-subtext">4-page papers • Non-archival workshop • Double-blind review</div>
+            </div> -->
+
+            <!-- Wave Divider with Singapore Logo -->
+            <div class="wave-divider">
+                <svg class="wave-divider-svg" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="waveDividerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#4b55c8" stop-opacity="0.9" />
+                            <stop offset="50%" stop-color="#6366f1" stop-opacity="0.8" />
+                            <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.7" />
+                        </linearGradient>
+                        <linearGradient id="greenDividerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#10b981" stop-opacity="0.9" />
+                            <stop offset="50%" stop-color="#34d399" stop-opacity="1" />
+                            <stop offset="100%" stop-color="#6ee7b7" stop-opacity="0.8" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M0,80 C240,100 480,60 720,80 C960,100 1200,60 1440,80 L1440,120 L0,120 Z"
+                        fill="url(#waveDividerGradient)" />
+                    <path class="green-strand" d="M0,35 C360,45 720,25 1080,35 C1200,38 1320,32 1440,35" 
+                        stroke="url(#greenDividerGradient)" stroke-width="4" fill="none" opacity="0.9" />
+                </svg>
+                <div class="singapore-logo"></div>
+                <div class="wave-deadline">
+                    <div class="wave-deadline-text">Submission Deadline: October 20, 2025 AoE</div>
+                    <div class="wave-website-text">Visit responsible-synthetic-data.github.io</div>
+                </div>
+            </div>
+
+            <div class="content-white">
+                <div class="content-white-inner">
+                    <div class="topics-section">
+                        <h2 class="section-title">Key Topics of Interest</h2>
+                        <div class="topics-grid">
+                            <div class="topic-item">
+                                <span class="topic-checkmark">✓</span>
+                                <span class="topic-text">Lifecycle uses of synthetic data, including LLM-driven generation and evaluation</span>
+                            </div>
+                            <div class="topic-item">
+                                <span class="topic-checkmark">✓</span>
+                                <span class="topic-text">Privacy, security, and data governance (e.g., PETs, leakage risks, provenance)</span>
+                            </div>
+                            <div class="topic-item">
+                                <span class="topic-checkmark">✓</span>
+                                <span class="topic-text">Fairness, bias, and representation in real/synthetic data mixes</span>
+                            </div>
+                            <div class="topic-item">
+                                <span class="topic-checkmark">✓</span>
+                                <span class="topic-text">Safety, robustness, and red-teaming with synthetic data</span>
+                            </div>
+                            <div class="topic-item">
+                                <span class="topic-checkmark">✓</span>
+                                <span class="topic-text">Explainability, interpretability, and uncertainty estimation</span>
+                            </div>
+                            <div class="topic-item">
+                                <span class="topic-checkmark">✓</span>
+                                <span class="topic-text">Standards, metrics, and tooling for trustworthy synthetic data use</span>
+                            </div>
+                            <div class="topic-item">
+                                <span class="topic-checkmark">✓</span>
+                                <span class="topic-text">Critical perspectives from law, policy, ethics, and social sciences</span>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- 
+                    <div class="organizers-section">
+                        <h3 class="organizers-title">Workshop Organizers</h3>
+                        <div class="organizers-grid">
+                            <div class="organizer">
+                                <img src="images/rachel_website_photo.jpg" alt="Rachel Cummings" class="organizer-photo">
+                                <div class="organizer-name">Rachel Cummings</div>
+                                <div class="organizer-affiliation">Columbia University</div>
+                            </div>
+                            <div class="organizer">
+                                <img src="images/shlomi.png" alt="Shlomi Hod" class="organizer-photo">
+                                <div class="organizer-name">Shlomi Hod</div>
+                                <div class="organizer-affiliation">Germany's Institute for Employment Research</div>
+                            </div>
+                            <div class="organizer">
+                                <img src="images/zilong.png" alt="Zilong Zhao" class="organizer-photo">
+                                <div class="organizer-name">Zilong Zhao</div>
+                                <div class="organizer-affiliation">Betterdata</div>
+                            </div>
+                            <div class="organizer">
+                                <img src="images/anshu.jpg" alt="Anshu Singh" class="organizer-photo">
+                                <div class="organizer-name">Anshu Singh</div>
+                                <div class="organizer-affiliation">Singapore's Government Technology Agency</div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                </div>
+            </div>
+            
+            <!-- <div class="purple-footer">
+                <div class="purple-footer-contact">
+                    <div class="purple-footer-item">aaai26-responsiblesyntheticdata@googlegroups.com</div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</body>
+</html>
