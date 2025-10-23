@@ -1,0 +1,12 @@
+{
+  "name": "aaai26-poster-generator",
+  "version": "1.0.0",
+  "description": "PDF poster generator for AAAI'26 workshop",
+  "main": "generate-poster-pdf.js",
+  "scripts": {
+    "generate-pdf": "node generate-poster-pdf.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.0.0"
+  }
+}
