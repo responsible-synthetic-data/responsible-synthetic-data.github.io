@@ -629,6 +629,7 @@ img {
     color: var(--primary-color);
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -875,7 +876,18 @@ img {
     background-clip: text;
 }
 
-/* Organizers Section */
+/* Speakers Section - Larger styling */
+.speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Organizers Section - Original smaller styling */
 .organizers-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -904,7 +916,18 @@ img {
     box-shadow: none;
 }
 
-.organizer-avatar {
+/* Larger avatars for speakers */
+.speakers-grid .organizer-avatar {
+    width: 85%;
+    height: 280px;
+    border-radius: 6px;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+    background: #f8f9fa;
+}
+
+/* Original size for organizers */
+.organizers-grid .organizer-avatar {
     width: 80%;
     height: 220px;
     border-radius: 6px;
@@ -921,14 +944,33 @@ img {
     border-radius: 6px;
 }
 
-.organizer-card h3 {
+/* Larger text for speakers */
+.speakers-grid .organizer-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+/* Original size for organizers */
+.organizers-grid .organizer-card h3 {
     margin-bottom: 0.4rem;
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--dark-color);
 }
 
-.organizer-card .affiliation {
+/* Larger affiliation for speakers */
+.speakers-grid .organizer-card .affiliation {
+    color: #374151;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Original size for organizers */
+.organizers-grid .organizer-card .affiliation {
     color: #374151;
     font-weight: 500;
     margin-bottom: 0.1rem;
@@ -1311,16 +1353,6 @@ img {
     }
 }
 
-/* Default organizer images */
-.organizer-avatar {
-    width: 80%;
-    height: 220px;
-    border-radius: 6px;
-    margin: 0 auto 0.6rem;
-    overflow: hidden;
-    background: #f8f9fa;
-}
-
 .organizer-photo {
     width: 100%;
     height: 100%;
@@ -1329,7 +1361,17 @@ img {
     border-radius: 6px;
 }
 
-.job-title {
+/* Larger job title for speakers */
+.speakers-grid .job-title {
+    color: #6b7280;
+    font-size: 0.95rem;
+    margin: -0.3rem 0 0.5rem 0;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+/* Original size for organizers */
+.organizers-grid .job-title {
     color: #6b7280;
     font-size: 0.9rem;
     margin: -0.5rem 0 0.5rem 0;
@@ -1339,7 +1381,13 @@ img {
 
 /* Fix for narrow screens */
 @media (max-width: 768px) {
-    .organizer-avatar {
+    .speakers-grid .organizer-avatar {
+        width: 250px;   /* uniform width */
+        height: 280px;  /* uniform height */
+        margin: 0 auto 1rem; /* keep it centered */
+    }
+    
+    .organizers-grid .organizer-avatar {
         width: 200px;   /* uniform width */
         height: 220px;  /* uniform height */
         margin: 0 auto 1rem; /* keep it centered */
