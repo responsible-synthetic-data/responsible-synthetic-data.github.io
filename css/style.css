@@ -629,6 +629,7 @@ img {
     color: var(--primary-color);
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -698,6 +699,210 @@ img {
     color: var(--gray-color);
     font-size: 0.9rem;
     line-height: 1.6;
+}
+
+/* Program Section */
+.program-info {
+    margin: 2rem 0 3rem;
+}
+
+.program-details-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.program-details-list li {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.program-details-list strong {
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+.program-schedule {
+    margin-top: 3rem;
+    overflow-x: auto;
+}
+
+.schedule-table {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.schedule-table thead {
+    background: #e5e7eb;
+}
+
+.schedule-table thead th {
+    color: #1f2937;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+}
+
+.schedule-table thead th:first-child {
+    width: 30%;
+}
+
+.schedule-table tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+    transition: background-color 0.2s ease;
+}
+
+.schedule-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.schedule-table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.schedule-table tbody td {
+    padding: 0.65rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.schedule-table tbody td:first-child {
+    color: var(--gray-color);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.schedule-table tbody td:last-child {
+    color: var(--dark-color);
+}
+
+.schedule-table .highlight-row {
+    background-color: rgba(99, 102, 241, 0.04);
+}
+
+.schedule-table .highlight-row:hover {
+    background-color: rgba(99, 102, 241, 0.08);
+}
+
+.schedule-table .break-row {
+    background-color: #f8f9fa;
+}
+
+.schedule-table .break-row:hover {
+    background-color: #f1f3f5;
+}
+
+.schedule-table .break-row td {
+    color: var(--gray-color);
+    font-style: italic;
+}
+
+.speaker-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.speaker-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .schedule-table {
+        font-size: 0.85rem;
+    }
+    
+    .schedule-table thead th,
+    .schedule-table tbody td {
+        padding: 0.6rem 0.75rem;
+    }
+    
+    .schedule-table tbody td:first-child {
+        white-space: normal;
+        font-size: 0.8rem;
+    }
+}
+
+/* Accepted Papers Section */
+.papers-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.papers-subsection {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.papers-subsection:first-of-type {
+    margin-top: 1rem;
+}
+
+.openreview-link {
+    color: #8b5a3c;
+    font-weight: 400;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.openreview-link:hover {
+    color: #6b4a2c;
+    text-decoration: underline;
+}
+
+.papers-note {
+    color: var(--gray-color);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.session-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.papers-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.papers-list li {
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+}
+
+.papers-list li strong {
+    color: var(--dark-color);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.papers-list .authors {
+    color: var(--gray-color);
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 /* Schedule Section */
