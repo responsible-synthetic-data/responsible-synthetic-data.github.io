@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSD @ AAAI'26 - Publicity Poster</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Didact+Gothic&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary-color: #8b5cf6;
+            --accent-color: #a855f7;
+            --dark-color: #1e1b4b;
+            --light-color: #fefefe;
+            --gray-color: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .poster {
+            width: 1200px;
+            max-width: 100%;
+            background: white;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Hero Section matching website */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 30px 40px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15) 0%, transparent 25%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 32px;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+        }
+
+        .date-location {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            font-size: 16px;
+            flex-wrap: wrap;
+        }
+
+        .date-location p {
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+
+        /* Wave SVG matching website */
+        .hero-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            z-index: 1;
+        }
+
+        /* Content Section */
+        .content {
+            padding: 50px 40px;
+            background: white;
+        }
+
+        .section-title {
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 32px;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 35px;
+            color: var(--dark-color);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #a78bfa 0%, #8b5a3c 100%);
+            border-radius: 1px;
+        }
+
+        /* People Row - matching website style */
+        .people-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .person-card {
+            background: white;
+            text-align: center;
+            flex: 0 0 auto;
+            width: 200px;
+            transition: transform 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .person-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .person-avatar {
+            width: 160px;
+            height: 180px;
+            border-radius: 6px;
+            margin: 0 auto 12px;
+            overflow: hidden;
+            background: #f8f9fa;
+        }
+
+        .person-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 15%;
+            border-radius: 6px;
+        }
+
+        .person-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--dark-color);
+        }
+
+        .person-title {
+            font-size: 13px;
+            color: var(--dark-color);
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .person-affiliation {
+            font-size: 14px;
+            color: #374151;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        /* Footer Section */
+        .footer {
+            text-align: center;
+            padding: 40px 40px 50px;
+            background: #f8f9fa;
+            border-top: 2px solid #e5e7eb;
+        }
+
+        .footer-link {
+            display: inline-block;
+            background: #374151;
+            color: white;
+            padding: 14px 35px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-link:hover {
+            background: #1f2937;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-email {
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--gray-color);
+        }
+
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .people-row {
+                gap: 15px;
+            }
+
+            .person-card {
+                width: 180px;
+            }
+
+            .person-avatar {
+                width: 140px;
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 25px 25px 35px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .content {
+                padding: 35px 25px;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+
+            .people-row {
+                gap: 12px;
+            }
+
+            .person-card {
+                width: 150px;
+            }
+
+            .person-avatar {
+                width: 120px;
+                height: 140px;
+            }
+
+            .person-name {
+                font-size: 16px;
+            }
+
+            .person-title,
+            .person-affiliation {
+                font-size: 12px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .poster {
+                box-shadow: none;
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <!-- Hero Section matching website -->
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Shaping Responsible Synthetic Data<br>in the Era of Foundation Models</h1>
+                <p class="subtitle">A Workshop at AAAI 2026</p>
+                <div class="date-location">
+                    <p>📅 27th January 2026</p>
+                    <p>📍 Singapore Expo, Singapore</p>
+                </div>
+            </div>
+            <!-- Wave SVG matching website -->
+            <svg class="hero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                    <linearGradient id="heroWaveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#4b55c8" stop-opacity="0.95" />
+                        <stop offset="50%" stop-color="#6366f1" stop-opacity="0.9" />
+                        <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.85" />
+                    </linearGradient>
+                    <linearGradient id="greenStrandGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#10b981" stop-opacity="0.8" />
+                        <stop offset="50%" stop-color="#34d399" stop-opacity="0.9" />
+                        <stop offset="100%" stop-color="#6ee7b7" stop-opacity="0.7" />
+                    </linearGradient>
+                </defs>
+                <path d="M0,60 C240,80 480,40 720,60 C960,80 1200,40 1440,60 L1440,100 L0,100 Z"
+                    fill="url(#heroWaveGradient)" />
+                <path d="M0,25 C360,35 720,15 1080,25 C1200,28 1320,22 1440,25" 
+                    stroke="url(#greenStrandGradient)" stroke-width="3" fill="none" opacity="0.8" />
+            </svg>
+        </div>
+
+        <!-- Content Section -->
+        <div class="content">
+            <h2 class="section-title">Invited Speakers</h2>
+            <div class="people-row">
+                <div class="person-card">
+                    <div class="person-avatar">
+                        <img src="images/xiaokui.jpg" alt="Xiaokui Xiao" class="person-photo">
+                    </div>
+                    <div class="person-name">Xiaokui Xiao</div>
+                    <p class="person-title">Professor<br>Recipient, ACM SIGMOD 2024 Test-of-Time Award</p>
+                    <p class="person-affiliation">National University of Singapore</p>
+                </div>
+                <div class="person-card">
+                    <div class="person-avatar">
+                        <img src="images/nitin.png" alt="Nitin Kohli" class="person-photo">
+                    </div>
+                    <div class="person-name">Nitin Kohli</div>
+                    <p class="person-title">Staff Scientist, Center for Effective Global Action<br>Principal Investigator, Data Privacy Lab</p>
+                    <p class="person-affiliation">University of California, Berkeley</p>
+                </div>
+                <div class="person-card">
+                    <div class="person-avatar">
+                        <img src="images/daniel.png" alt="Daniel Ramage" class="person-photo">
+                    </div>
+                    <div class="person-name">Daniel Ramage</div>
+                    <p class="person-title">Research Director</p>
+                    <p class="person-affiliation">Google Research</p>
+                </div>
+                <div class="person-card">
+                    <div class="person-avatar">
+                        <img src="images/jorg.jpg" alt="Jörg Drechsler" class="person-photo">
+                    </div>
+                    <div class="person-name">Jörg Drechsler</div>
+                    <p class="person-title">Head of the Statistical Methods Center, Professor</p>
+                    <p class="person-affiliation">German Federal Institute for Employment Research, Ludwig Maximilian University of Munich</p>
+                </div>
+                <div class="person-card">
+                    <div class="person-avatar">
+                        <img src="images/junnan.jpg" alt="Junnan Li" class="person-photo">
+                    </div>
+                    <div class="person-name">Junnan Li</div>
+                    <p class="person-title">Research Director</p>
+                    <p class="person-affiliation">Salesforce, AI Research Singapore</p>
+                </div>
+            </div>
+
+            <h2 class="section-title">Panelists</h2>
+            <div class="people-row">
+                <div class="person-card">
+                    <div class="person-avatar">
+                        <img src="images/ghim-eng.jpg" alt="Ghim Eng Yap" class="person-photo">
+                    </div>
+                    <div class="person-name">Ghim Eng Yap</div>
+                    <p class="person-title">Director<br>Head of Data Practice</p>
+                    <p class="person-affiliation">Government Technology Agency Singapore</p>
+                </div>
+                <div class="person-card">
+                    <div class="person-avatar">
+                        <img src="images/yev_meyer.jpg" alt="Yev Meyer" class="person-photo">
+                    </div>
+                    <div class="person-name">Yev Meyer</div>
+                    <p class="person-title">Principal Research Scientist</p>
+                    <p class="person-affiliation">NVIDIA</p>
+                </div>
+                <div class="person-card">
+                    <div class="person-avatar">
+                        <img src="images/anthony-tung.jpg" alt="Anthony Tung" class="person-photo">
+                    </div>
+                    <div class="person-name">Anthony Tung</div>
+                    <p class="person-title">Professor<br>Director Google-NUS Innovation and Research Center</p>
+                    <p class="person-affiliation">National University of Singapore</p>
+                </div>
+                <div class="person-card">
+                    <div class="person-avatar">
+                        <img src="images/uzair.jpg" alt="Uzair Javaid" class="person-photo">
+                    </div>
+                    <div class="person-name">Uzair Javaid</div>
+                    <p class="person-title">CEO, Co-founder</p>
+                    <p class="person-affiliation">Betterdata</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer">
+            <a href="https://aaai26-responsible-synthetic-data.github.io" class="footer-link">Visit Workshop Website</a>
+            <div class="contact-email">✉️ aaai26-responsiblesyntheticdata@googlegroups.com</div>
+        </div>
+    </div>
+</body>
+</html>
